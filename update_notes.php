@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 
-$domain = 'https://dentalboss.ccdocs.com';
+$domain = 'copy vicidial client domain here';
 $url 		   = '';
 $lead_id	   = '';
 $str_notes 	   = '';
@@ -38,9 +38,9 @@ if (array_key_exists("notes", $get_notes_response)) {
 	$log_file($str_notes);
 
 	if ($lead_id == '') {
-		$url = $domain . '/vicidial/non_agent_api.php?source=GHL&user=APIUSER&pass=8zGjke96KNyrwsA3&function=update_lead&search_method=PHONE_NUMBER&records=5&phone_number=' . $phone . '&comments=' . $str_notes;
+		$url = $domain . '/vicidial/non_agent_api.php?source=GHL&user=APIUSER&pass={apiuser password}&function=update_lead&search_method=PHONE_NUMBER&records=5&phone_number=' . $phone . '&comments=' . $str_notes;
 	} else {
-		$url = $domain . '/vicidial/non_agent_api.php?source=GHL&user=APIUSER&pass=8zGjke96KNyrwsA3&function=update_lead&search_method=LEAD_ID&&lead_id=' . $lead_id . '&comments=' . $str_notes;
+		$url = $domain . '/vicidial/non_agent_api.php?source=GHL&user=APIUSER&pass={apiuser password}&function=update_lead&search_method=LEAD_ID&&lead_id=' . $lead_id . '&comments=' . $str_notes;
 	}
 
 	$add_notes_response = add_notes_vicidial($url);
@@ -80,7 +80,7 @@ function get_notes($contact_id)
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => 'GET',
 		CURLOPT_HTTPHEADER => array(
-			'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IlBsek5xaklsbHc5aWRxQVh0R2FrIiwiY29tcGFueV9pZCI6ImFnYWdwdXloZHB3VHk3WFc0RmViIiwidmVyc2lvbiI6MSwiaWF0IjoxNzAzMTIzNTE2ODk5LCJzdWIiOiJ1c2VyX2lkIn0.XkbEE8DM3YYndKBvw_hArO8qa-GboXakOGD3LhYagJk'
+			'Authorization: Bearer {set user location key}'
 		),
 	));
 
